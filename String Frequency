@@ -1,0 +1,19 @@
+text = input("Please enter a string: ")
+def make_dict(x):
+    mydict = {}
+    for letter in x:
+        mydict[letter] = 1 + mydict.get(letter, 0)
+    return mydict
+
+
+def most_frequent(text):
+    letters = [letter.lower() for letter in text if letter.isalpha()]
+    mydict = make_dict(letters)
+    result = []
+    for key in mydict:
+        result.append((mydict[key], key))
+    result.sort(reverse=True)
+    for count, letter in result:
+        print (letter,'=', count)
+
+most_frequent(text)
